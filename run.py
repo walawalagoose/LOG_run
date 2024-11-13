@@ -46,10 +46,10 @@ def run():
 
     if args.tag == 'officehome':
         from data.officehome import load_data
-    elif args.tag == 'office':
-        from data.office31 import load_data
-    else:
-        from data.visda import load_data
+    # elif args.tag == 'office':
+    #     from data.office31 import load_data
+    # else:
+    #     from data.visda import load_data
     
 
 
@@ -107,7 +107,7 @@ def load_config():
     
     
     parser.add_argument('--tag', type=str, default='officehome', help="Tag")
-    parser.add_argument('--root', type=str, default='/data/hash_data/office-home/', help="root")
+    parser.add_argument('--root', type=str, default='data/hash_data/office-home/', help="root")
     parser.add_argument('--source', type=str, default='Product.txt', help="The source dataset")
     parser.add_argument('--target', type=str, default='Real_World.txt', help="The target dataset")
     parser.add_argument('--num_class', default=65, type=int,

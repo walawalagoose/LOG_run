@@ -1,19 +1,17 @@
 from typing import Optional
 from torch.optim.optimizer import Optimizer
+from torch.hub import load_state_dict_from_url
 import sys
-import torch
 from torch.utils.data.dataloader import DataLoader
-import numpy as np
 from typing import List, Dict, Optional, Any, Tuple
 import torch.nn as nn
-import torch
 import numpy as np
 from torch.autograd import Function
 
 import torch
 from torchvision import models
 #from torchvision.models.utils import load_state_dict_from_url
-from torchvision.models.resnet import BasicBlock, Bottleneck, model_urls
+from torchvision.models.resnet import BasicBlock, Bottleneck
 
 class StepwiseLR:
     """
