@@ -226,10 +226,10 @@ def train(train_s_dataloader,
                    topk,
                    save=False,
                    )
-    # torch.save({'iteration': epoch,
-    #             'model_state_dict': model.state_dict(),
-    #             'optimizer_state_dict': optimizer.state_dict(),
-    #         }, os.path.join('checkpoints', 'resume_{}.t'.format(code_length)))
+    torch.save({'iteration': epoch,
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+            }, os.path.join('checkpoints', 'resume_{}.t'.format(code_length)))
     logger.info('Training finish, [iteration:{}][map:{:.4f}]'.format(epoch+1, mAP))
 
 
