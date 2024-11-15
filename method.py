@@ -240,7 +240,7 @@ def train(train_s_dataloader,
     logger.info('Training finish, [iteration:{}][map:{:.4f}]'.format(epoch+1, mAP))
 
 
-def evaluate(model, query_dataloader, retrieval_dataloader, code_length, device, topk, save):
+def evaluate(model, query_dataloader, retrieval_dataloader, code_length, device, topk, save=False):
     model.eval()
 
     # Generate hash code
