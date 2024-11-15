@@ -216,6 +216,10 @@ def train(train_s_dataloader,
                 max_iter,
                 mAP,
             ))
+            torch.save({'iteration': epoch,
+            'model_state_dict': model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+        }, os.path.join('checkpoints', 'resume_{}_{}_{}.t'.format(code_length, epoch, mAP)))
 
     # Evaluate and save 
     mAP = evaluate(model,
@@ -226,10 +230,13 @@ def train(train_s_dataloader,
                    topk,
                    save=False,
                    )
+    
+    # 确保文件夹存在
+    os.makedirs('checkpoints', exist_ok=True)
     torch.save({'iteration': epoch,
                 'model_state_dict': model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
-            }, os.path.join('checkpoints', 'resume_{}.t'.format(code_length)))
+            }, os.path.join('checkpoints', 'resume_{}_{}_{}.t'.format(code_length, epoch, mAP)))
     logger.info('Training finish, [iteration:{}][map:{:.4f}]'.format(epoch+1, mAP))
 
 
