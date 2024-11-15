@@ -54,7 +54,7 @@ def train(train_s_dataloader,
           verbose,
           topk,
           num_class,
-          evaluate_interval,
+          _interval,
           tag,
           batch_size,
           knn,
@@ -242,6 +242,7 @@ def train(train_s_dataloader,
 
 def evaluate(model, query_dataloader, retrieval_dataloader, code_length, device, topk, save=False):
     model.eval()
+    model.to(device)  # 确保模型在指定的设备上
 
     # Generate hash code
     query_code = generate_code(model, query_dataloader, code_length, device)
