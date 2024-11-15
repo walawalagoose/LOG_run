@@ -76,7 +76,7 @@ def run():
             args.knn,
         )
     elif args.evaluate:
-        model = load_model(args.arch, args.code_length)
+        model = load_model(args.arch, args.code_length,args.num_class,args.num_class)
         #model = nn.DataParallel(model,device_ids=[0,1,2])
         model_checkpoint = torch.load('./checkpoints/resume_64.t')
         model.load_state_dict(model_checkpoint['model_state_dict'])
